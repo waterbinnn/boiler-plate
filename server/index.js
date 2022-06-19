@@ -1,7 +1,6 @@
 //필요한 모듈
 const express = require("express");
 const app = express();
-const port = 5000;
 const cookieParser = require('cookie-parser');
 const {auth} = require('./middleware/auth')
 
@@ -32,6 +31,10 @@ mongoose
 app.get("/", (req, res) => {
   res.send("Good");
 });
+
+app.get("/api/hello",(req,res)=> {
+  res.send('안녕하세요~')
+})
 
 app.post("/api/users/register", (req, res) => {
   //회원가입할때 필요한 정보들을 client에서 가져오면
@@ -106,6 +109,10 @@ app.get('/api/users/logout', auth, (req,res)=> {
 })
 
 
+const port = 5000;
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+

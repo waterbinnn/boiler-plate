@@ -4,9 +4,10 @@
   "description": "NodeJS 와 ReactJS 를 사용하여 회원가입, 로그인 페이지 기능 구현",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "backend": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index.js",
+    "backend": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "concurrently \"npm run backend\" \"npm run start --prefix client\""
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
+    "concurrently": "^7.2.2",
     "cookie-parser": "^1.4.6",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
@@ -28,5 +30,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
